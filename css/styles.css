@@ -169,3 +169,7 @@ td {
 td:first-child {
   text-align: center;
 }
+
+.divsel{
+  display: flex;
+}
