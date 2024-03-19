@@ -108,6 +108,7 @@ a:hover {
   padding: 10px 15px 0 15px;
   border: black 5px solid;
   border-radius: 50px;
+  min-height: 1000px;
 }
 
 .list-content h3 {
