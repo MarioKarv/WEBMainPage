@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="title">
+      <div class="title-text">
+        <p>
+          звіти з лабораторних робіт <br />
+          з дисципліни "WEB – орієнтовані технології. Основи Frontend та Backend
+          розробок"
+        </p>
+        <p>Студент групи ІО-11 <span>Кравець Мар'ян Ігорович</span></p>
+      </div>
+      <div><img class="me" src="../images/photo.jpg" alt="me" /></div>
+    </header>
+    <main>
+      <div class="labs">
+        <a href="../lab1/1lab.html" class="lab">Лаба №1</a>
+        <a href="../lab2/2lab.html" class="lab">Лаба №2</a>
+        <a href="../lab3/3lab.html" class="lab">Лаба №3</a>
+        <a href="../lab4/4lab.html" class="lab">Лаба №4</a>
+        <a href="../lab5/5lab.html" class="lab">Лаба №5</a>
+        <a href="6lab.html" class="lab">Лаба №6</a>
+        <a href="#" class="lab">Лаба №7</a>
+        <a href="#" class="lab">Лаба №8</a>
+        <a href="#" class="lab">Лаба №9</a>
+      </div>
+      <div class="labs-content">
+        <div class="list">
+          <a href="topic-aim.html" class="list-item">Тема, мета, місце розташування лаби</a>
+          <a href="task1_5-1.html" class="list-item">Завдання 1 5.1</a>
+          <a href="task3_5-1.html" class="list-item">Завдання 3 5.1</a>
+          <a href="task5_5-1.html" class="list-item">Завдання 5 5.1</a>
+          <a href="task7_5-1.html" class="list-item">Завдання 7 5.1</a>
+          <a href="task9_5-1.html" class="list-item">Завдання 9 5.1</a>
+          <a href="task10_5-1.html" class="list-item">Завдання 10 5.1</a>
+          <a href="task1_6.html" class="list-item">Завдання 1 6</a>
+          <a href="task3_6.html" class="list-item">Завдання 3 6</a>
+          <a href="task5_6.html" class="list-item">Завдання 5 6</a>
+          <a href="task7_6.html" class="list-item">Завдання 7 6</a>
+          <a href="task8_6.html" class="list-item">Завдання 8 6</a>
+          <a href="task9_6.html" class="list-item">Завдання 9 6</a>
+          <a href="task10_6.html" class="list-item">Завдання 10 6</a>
+          <a href="conclusions.html" class="list-item">Висновки</a>
+        </div>
+        <div class="list-content">
+          <h4>Завдання №1:</h4>
+          <p>Напишіть наступні функції:
+            createProduct(obj, callback) - приймає об'єкт товару без id, а також коллбек. Функція створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек передаючи йому створений об'єкт.
+            
+            logProduct(product) - колббек що приймає об'єкт продукту і логуючий його в консоль
+            logTotalPrice(product) - колббек, що приймає об'єкт продукту і логіює загальну вартість товару в консоль
+          </p>
+          <h4>Код JavaScript:</h4>
+          <xmp>
+            function createProduct(obj, callback) {
+              // Створюємо унікальний ідентифікатор для продукту
+              const id = Math.floor(Math.random() * 10000);
+              // Додаємо ідентифікатор до об'єкта продукту
+              const product = { ...obj, id };
+              // Викликаємо колбек з об'єктом продукту
+              callback(product);
+            }
+          
+            function logProduct(product) {
+               console.log(product);
+            }
+          
+            function logTotalPrice(product) {
+                console.log(`Загальна вартість товару: ${product.price * product.quantity}`);
+            }
+        
+          </xmp>
+
+          <h4>Приклад використання:</h4>
+          <xmp>
+            const product = { name: 'Огірок', price: 123, quantity: 10 };
+            createProduct(product, logProduct);  // Логує об'єкт продукту
+            createProduct(product, logTotalPrice);  // Логує загальну вартість товару
+          </xmp>
+
+        </div>
+      </div>
+    </main>
+
+    <script>
+        function createProduct(obj, callback) {
+              // Створюємо унікальний ідентифікатор для продукту
+              const id = Math.floor(Math.random() * 10000);
+              // Додаємо ідентифікатор до об'єкта продукту
+              const product = { ...obj, id };
+              // Викликаємо колбек з об'єктом продукту
+              callback(product);
+            }
+          
+            function logProduct(product) {
+               console.log(product);
+            }
+          
+            function logTotalPrice(product) {
+                console.log(`Загальна вартість товару: ${product.price * product.quantity}`);
+            }
+
+            const product = { name: 'Огірок', price: 123, quantity: 10 };
+            createProduct(product, logProduct);  // Логує об'єкт продукту
+            createProduct(product, logTotalPrice);  // Логує загальну вартість товару
+
+    </script>
+  </body>
+</html>
