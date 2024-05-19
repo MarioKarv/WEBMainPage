@@ -38,7 +38,9 @@
       </div>
       <div class="labs-content">
         <div class="list">
-          <a href="topic-aim.html" class="list-item">Тема, мета, місце розташування лаби</a>
+          <a href="topic-aim.html" class="list-item"
+            >Тема, мета, місце розташування лаби</a
+          >
           <a href="task2_5-1.html" class="list-item">Завдання 2 5.1</a>
           <a href="task4_5-1.html" class="list-item">Завдання 4 5.1</a>
           <a href="task6_5-1.html" class="list-item">Завдання 6 5.1</a>
@@ -55,32 +57,37 @@
           <a href="conclusions.html" class="list-item">Висновки</a>
         </div>
         <div class="list-content">
-          <h4>Завдання №10:</h4>
-          <p>Напишіть функцію checkBrackets(str) яка приймає рядок жс коду (someFn)  і перевіряє правильність закриття дужок () {} []
-  Якщо рядок містить коректний код функція повертає true.
-  В іншому випадку повертає false
-
+          <h4>Завдання №6:</h4>
+          <p>
+            Напишіть функцію, яка приймає массив об'єктів і повертає новий
+            массив об'єктів,у якому є знижка на 30 % на всі медикаменти ціна,
+            яких перевищує 300 грн у масиві Надайте ід для кожного медикамента
+            const medicines = [ { name: "Noshpa", price: 170 }, { name:
+            "Analgin", price: 55 }, { name: "Quanil", price: 310 }, { name:
+            "Alphacholine", price: 390 }, ];
           </p>
           <h4>Код JavaScript:</h4>
           <xmp>
-            function checkBrackets(str) {
-            const brackets = {
-                '(': ')',
-                '[': ']',
-                '{': '}'
-            };
-            const stack = [];
-            for (let char of str) {
-                if (brackets[char]) {
-                    stack.push(brackets[char]);
-                } else if (Object.values(brackets).includes(char)) {
-                    if (stack.pop() !== char) {
-                        return false;
+            const medicines = [
+                { name: "Noshpa", price: 170 },
+                { name: "Analgin", price: 55 },
+                { name: "Quanil", price: 310 },
+                { name: "Alphacholine", price: 390 },
+            ];
+
+            const applyDiscountAndAssignId = (medicines) => {
+                return medicines.map((medicine, index) => {
+                    // Копіюємо об'єкт для уникнення змін у вхідному масиві
+                    const updatedMedicine = { ...medicine, id: index + 1 };
+
+                    // Якщо ціна перевищує 300 грн, застосовуємо знижку 30%
+                    if (medicine.price > 300) {
+                        updatedMedicine.price = medicine.price * 0.7;
                     }
-                }
-            }
-            return stack.length === 0;
-        }
+
+                    return updatedMedicine;
+                });
+            };
 
 
 
@@ -89,43 +96,39 @@
 
           <h4>Приклад використання:</h4>
           <xmp>
-            // Приклади використання функції
-            console.log(checkBrackets("(function(){return [1,2,3,4];})()")); // true
-            console.log(checkBrackets("{[()]}")); // true
-            console.log(checkBrackets("{[(])}")); // false
-            console.log(checkBrackets("{[}")); // false
+            // Виклик функції та виведення результату
+            const updatedMedicines = applyDiscountAndAssignId(medicines);
+            console.log(updatedMedicines);
           </xmp>
-
         </div>
       </div>
     </main>
 
     <script>
-        function checkBrackets(str) {
-    const brackets = {
-        '(': ')',
-        '[': ']',
-        '{': '}'
-    };
-    const stack = [];
-    for (let char of str) {
-        if (brackets[char]) {
-            stack.push(brackets[char]);
-        } else if (Object.values(brackets).includes(char)) {
-            if (stack.pop() !== char) {
-                return false;
-            }
-        }
-    }
-    return stack.length === 0;
-}
+      const medicines = [
+        { name: "Noshpa", price: 170 },
+        { name: "Analgin", price: 55 },
+        { name: "Quanil", price: 310 },
+        { name: "Alphacholine", price: 390 },
+      ];
 
-// Приклади використання функції
-console.log(checkBrackets("(function(){return [1,2,3,4];})()")); // true
-console.log(checkBrackets("{[()]}")); // true
-console.log(checkBrackets("{[(])}")); // false
-console.log(checkBrackets("{[}")); // false
+      const applyDiscountAndAssignId = (medicines) => {
+        return medicines.map((medicine, index) => {
+          // Копіюємо об'єкт для уникнення змін у вхідному масиві
+          const updatedMedicine = { ...medicine, id: index + 1 };
 
+          // Якщо ціна перевищує 300 грн, застосовуємо знижку 30%
+          if (medicine.price > 300) {
+            updatedMedicine.price = medicine.price * 0.7;
+          }
+
+          return updatedMedicine;
+        });
+      };
+
+      // Виклик функції та виведення результату
+      const updatedMedicines = applyDiscountAndAssignId(medicines);
+      console.log(updatedMedicines);
     </script>
   </body>
 </html>
